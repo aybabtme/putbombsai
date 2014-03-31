@@ -15,7 +15,9 @@ func planToPutBomb(plan *MoveQueue, state *player.State) []Point {
 		plan.Enqueue(move)
 	}
 
-	plan.Enqueue(player.PutBomb)
+	if !plan.IsEmpty() {
+		plan.Enqueue(player.PutBomb)
+	}
 
 	return bombs
 }
